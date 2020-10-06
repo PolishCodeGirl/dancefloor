@@ -1,29 +1,25 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 
-import "./App.css";
+import Form from "./components/Form";
+import Canvas from "./components/Canvas";
+import Loader from "./components/Loader";
 
-import drawCanvas from "./utils/drawCanvas";
-import clearCanvas from "./utils/clearCanvas";
-import Form from "./Form";
+const mapStateToProps = ({ canvas, isCanvasDimensionsLoading }) => ({
+  canvas,
+  isCanvasDimensionsLoading,
+});
 
-const mapStateToProps = ({ canvas }) => ({ canvas });
-
-const App = ({ canvas }) => {
-  console.log("canvas", canvas);
-
-  useEffect(() => {
-    clearCanvas();
-    drawCanvas(canvas.rows, canvas.columns);
-  }, [canvas]);
-
+const App = ({ canvas, isCanvasDimensionsLoading }) => {
   return (
     <div className="App">
-      <p>Canvas here</p>
+      <h3 style={{ margin: "15px 0" }}>Canvas dancefloor</h3>
+
       <Form style={{ marginBottom: "20px" }} />
-      <div>
-        <canvas id="dancefloor" width="1000" height="1000"></canvas>
-      </div>
+
+      {isCanvasDimensionsLoading && <Loader />}
+
+      {!isCanvasDimensionsLoading && <Canvas canvasDimensions={canvas} />}
     </div>
   );
 };

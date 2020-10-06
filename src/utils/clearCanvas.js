@@ -3,6 +3,6 @@ export default function clearCanvas() {
 
   if (canvas.getContext) {
     var ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, 1000, 1000);
+    ctx.clearRect(0, 0, 800, 800);
   }
 }

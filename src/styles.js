@@ -25,7 +25,17 @@ export const GlobalStyle = createGlobalStyle`
   font-size: calc(10px + 2vmin);
   }
 
+  .App {
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+
+  display: flex;
+  flex-direction: column;
+}
+
   p {
    margin: 0;
+   font-size: 16px;
   }
 `;

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import { getCanvasDimension } from "./canvasReducer";
-import { dispatch } from "./store";
+import { getCanvasDimension, loadingDimensions } from "../canvasReducer";
+import { dispatch } from "../store";
 
 const Form = ({ ...props }) => {
   const [numberOfColumns, setNumberOfColumns] = useState("");
@@ -19,17 +19,19 @@ const Form = ({ ...props }) => {
   const handleSearch = (event) => {
     event.preventDefault();
 
-    console.log("Poszło!");
-
-    dispatch(
-      getCanvasDimension(parseInt(numberOfRows), parseInt(numberOfColumns))
-    );
-
+    dispatch(loadingDimensions());
     setNumberOfColumns("");
     setNumberOfRows("");
-  };
 
-  console.log({ numberOfColumns, numberOfRows });
+    setTimeout(() => {
+      dispatch(
+        getCanvasDimension(
+          parseInt(numberOfRows, 10),
+          parseInt(numberOfColumns, 10)
+        )
+      );
+    }, 1000);
+  };
 
   return (
     <FormStyled onSubmit={handleSearch} {...props}>

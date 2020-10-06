@@ -13,9 +13,11 @@ const mapStateToProps = ({ canvas, isCanvasDimensionsLoading }) => ({
 const App = ({ canvas, isCanvasDimensionsLoading }) => {
   return (
     <div className="App">
-      <h3 style={{ margin: "15px 0" }}>Canvas dancefloor</h3>
+      <div style={{ maxWidth: "800px", width: "100%" }}>
+        <h3 style={{ margin: "15px 0" }}>Canvas dancefloor</h3>
 
-      <Form style={{ marginBottom: "20px" }} />
+        <Form style={{ marginBottom: "20px" }} />
+      </div>
 
       {isCanvasDimensionsLoading && <Loader />}
 

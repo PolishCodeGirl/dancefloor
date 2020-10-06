@@ -27,8 +27,9 @@ export const GlobalStyle = createGlobalStyle`
 
   .App {
   text-align: center;
+  align-items: center;
   width: 100%;
-  max-width: 800px;
+  padding: 10px;
 
   display: flex;
   flex-direction: column;

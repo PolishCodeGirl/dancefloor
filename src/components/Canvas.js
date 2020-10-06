@@ -3,12 +3,17 @@ import styled from "styled-components";
 
 import drawCanvas from "../utils/drawCanvas";
 import clearCanvas from "../utils/clearCanvas";
+// import setUpCanvas from "../utils/setUpCanvas";
 
 const Canvas = ({ canvasDimensions }) => {
   useEffect(() => {
     clearCanvas();
     drawCanvas(canvasDimensions.rows, canvasDimensions.columns);
   }, [canvasDimensions]);
+
+  //   useEffect(() => {
+  //     setUpCanvas();
+  //   }, []);
 
   return (
     <Wrapper>
